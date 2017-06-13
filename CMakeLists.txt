@@ -8,6 +8,8 @@ set(SOURCE_FILES
         observer/ball.cpp
         observer/ball.h
         observer/iobserver.h
+        observer/position.cpp
         observer/position.h
-        observer/position.cpp)
+        observer/football.cpp
+        observer/football.h observer/player.cpp observer/player.h)
 add_executable(Football-Game-Engine ${SOURCE_FILES})

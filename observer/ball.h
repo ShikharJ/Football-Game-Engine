@@ -14,7 +14,7 @@
  * `notify_observers` method.
 */
 
-class Ball : public IObserver
+class Ball
 {
 private:
     std::vector<IObserver> i_;
@@ -22,7 +22,7 @@ private:
 public:
     void attach_observer();
     void detach_observer();
-    void notify_observers() const;
+    void notify_observers();
 };
 
 #endif
