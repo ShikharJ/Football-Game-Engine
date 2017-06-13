@@ -3,5 +3,5 @@ project(Football-Game-Engine)
 
 set(CMAKE_CXX_STANDARD 14)
 
-set(SOURCE_FILES main.cpp observer/ball.cpp observer/ball.h)
+set(SOURCE_FILES main.cpp observer/ball.cpp observer/ball.h observer/iobserver.h)
 add_executable(Football-Game-Engine ${SOURCE_FILES})
