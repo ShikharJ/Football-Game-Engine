@@ -1,0 +1,4 @@
+#ifndef FOOTBALL_GAME_ENGINE_BALL_H
+#define FOOTBALL_GAME_ENGINE_BALL_H
+
+#endif
