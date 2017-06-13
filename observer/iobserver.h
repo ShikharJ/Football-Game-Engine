@@ -6,7 +6,7 @@
  * This is an abstract base class for the entire observer
  * pattern, with a pure virtual method for updating the
  * child classes.
- */
+*/
 
 class IObserver
 {
