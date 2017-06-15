@@ -13,7 +13,7 @@ private:
     Football *ball;
 
 public:
-    Referee(Football &b, std::string &n);
+    Referee(Football &b, std::string n);
     void update();
 };
 

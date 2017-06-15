@@ -22,5 +22,19 @@ set(SOURCE_FILES
         strategy/defendstrategy.cpp
         strategy/defendstrategy.h
         strategy/team.cpp
-        strategy/team.h)
+        strategy/team.h
+        decorator/player.cpp
+        decorator/player.h
+        decorator/fieldplayer.cpp
+        decorator/fieldplayer.h
+        decorator/goalkeeper.cpp
+        decorator/goalkeeper.h
+        decorator/playerrole.cpp
+        decorator/playerrole.h
+        decorator/forward.cpp
+        decorator/forward.h
+        decorator/midfielder.cpp
+        decorator/midfielder.h
+        decorator/defender.cpp
+        decorator/defender.h)
 add_executable(Football-Game-Engine ${SOURCE_FILES})

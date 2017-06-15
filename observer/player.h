@@ -14,7 +14,7 @@ private:
     Football *ball;
 
 public:
-    Player(Football &b, std::string &n);
+    Player(Football &b, std::string n);
     void update();
 };
 
