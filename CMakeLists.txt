@@ -15,5 +15,12 @@ set(SOURCE_FILES
         observer/player.cpp
         observer/player.h
         observer/referee.cpp
-        observer/referee.h)
+        observer/referee.h
+        strategy/teamstrategy.h
+        strategy/attackstrategy.cpp
+        strategy/attackstrategy.h
+        strategy/defendstrategy.cpp
+        strategy/defendstrategy.h
+        strategy/team.cpp
+        strategy/team.h)
 add_executable(Football-Game-Engine ${SOURCE_FILES})
