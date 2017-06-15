@@ -17,6 +17,7 @@
 class Ball
 {
 private:
+    //TODO: Add support for RCP
     std::vector<IObserver> i_;
 
 public:

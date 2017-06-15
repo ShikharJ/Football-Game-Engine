@@ -1,12 +1,11 @@
-#ifndef FOOTBALL_GAME_ENGINE_PLAYER_H
-#define FOOTBALL_GAME_ENGINE_PLAYER_H
+#ifndef FOOTBALL_GAME_ENGINE_REFEREE_H
+#define FOOTBALL_GAME_ENGINE_REFEREE_H
 
 #include "iobserver.h"
-#include "position.h"
 #include "football.h"
 #include <string>
 
-class Player : public IObserver
+class Referee : public IObserver
 {
 private:
     Position ball_position;
@@ -14,7 +13,7 @@ private:
     Football *ball;
 
 public:
-    Player(Football &b, std::string &n);
+    Referee(Football &b, std::string &n);
     void update();
 };
 
