@@ -11,7 +11,7 @@ private:
 
 public:
     Position get_ball_position() const;
-    void set_ball_position(const Position &p);
+    void set_ball_position(Position *p);
 };
 
 #endif

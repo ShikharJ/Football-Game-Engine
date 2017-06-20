@@ -1,9 +1,9 @@
 #include <iostream>
 #include "referee.h"
 
-Referee::Referee(Football &b, std::string n)
+Referee::Referee(Football *b, std::string n)
 {
-    ball = &b;
+    ball = b;
     name_ = n;
 }
 

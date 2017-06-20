@@ -16,6 +16,8 @@ set(SOURCE_FILES
         ObserverPattern/player.h
         ObserverPattern/referee.cpp
         ObserverPattern/referee.h
+        ObserverPattern/engine.cpp
+        ObserverPattern/engine.h
         StrategyPattern/teamstrategy.h
         StrategyPattern/attackstrategy.cpp
         StrategyPattern/attackstrategy.h

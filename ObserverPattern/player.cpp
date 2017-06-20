@@ -1,9 +1,9 @@
 #include <iostream>
 #include "player.h"
 
-Player::Player(Football &b, std::string n)
+Player::Player(Football *b, std::string n)
 {
-    ball = &b;
+    ball = b;
     name_ = n;
 }
 
