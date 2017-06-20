@@ -8,11 +8,11 @@ Team::Team(std::string team)
 
 void Team::set_strategy(TeamStrategy *s)
 {
-    *strategy = *s;
+    strategy = s;
 }
 
 void Team::play_game()
 {
-    std::cout << team_name << std::endl;
+    std::cout << team_name << " ";
     strategy->play();
 }

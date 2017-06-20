@@ -3,5 +3,5 @@
 
 void AttackStrategy::play()
 {
-    std::cout << "Playing in attacking mode." << std::endl;
+    std::cout << "playing in attacking mode." << std::endl;
 }

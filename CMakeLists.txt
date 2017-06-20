@@ -25,6 +25,8 @@ set(SOURCE_FILES
         StrategyPattern/defendstrategy.h
         StrategyPattern/team.cpp
         StrategyPattern/team.h
+        StrategyPattern/engine.cpp
+        StrategyPattern/engine.h
         DecoratorPattern/player.cpp
         DecoratorPattern/player.h
         DecoratorPattern/fieldplayer.cpp

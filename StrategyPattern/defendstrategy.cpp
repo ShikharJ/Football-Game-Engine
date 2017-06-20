@@ -3,6 +3,6 @@
 
 void DefendStrategy::play()
 {
-    std::cout << "Playing in defending mode." << std::endl;
+    std::cout << "playing in defending mode." << std::endl;
 }
 
