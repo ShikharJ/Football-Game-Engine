@@ -10,8 +10,8 @@ Referee::Referee(Football *b, std::string n)
 void Referee::update()
 {
     ball_position = ball->get_ball_position();
-    std::cout << "Player " << name_ << " says that the ball is at " << ball_position.get_x() << ", "
-              << ball_position.get_y() << ", " << ball_position.get_z() << std::endl;
+    std::cout << "Referee " << name_ << " says that the ball is at <" << ball_position.get_x() << ", "
+              << ball_position.get_y() << ", " << ball_position.get_z() << ">" << std::endl;
 }
 
 bool Referee::__eq__(IObserver *x)

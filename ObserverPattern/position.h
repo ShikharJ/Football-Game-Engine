@@ -16,12 +16,19 @@ private:
     int z;
 
 public:
+    // Default Constructor
     Position();
+    // Constructor
     Position(int x, int y, int z);
+    // Copy-Constructor
     Position(const Position &p);
+    // Assignment operator overloading
     Position &operator=(const Position &p);
+    // returns the x-coordinate
     int get_x() const;
+    // returns the y-coordinate
     int get_y() const;
+    // returns the z-
     int get_z() const;
 };
 
