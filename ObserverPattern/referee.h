@@ -15,6 +15,7 @@ private:
 public:
     Referee(Football &b, std::string n);
     void update();
+    bool is_player();
 };
 
 #endif

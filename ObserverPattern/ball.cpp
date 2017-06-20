@@ -1,18 +1,20 @@
+#include <algorithm>
 #include "ball.h"
+#include "player.h"
 
-void Ball::attach_observer()
+void Ball::attach_observer(IObserver *x)
 {
-    //TODO: Implement
+    i_.push_back(x);
 }
 
-void Ball::detach_observer()
+void Ball::detach_observer(IObserver *x)
 {
-    //TODO: Implement
+    i_.erase(std::remove_if(i_.begin(), i_.end(), [&](IObserver *e) { return e->__eq__(x); }), i_.end());
 }
 
 void Ball::notify_observers()
 {
     for (auto &v : i_) {
-        v.update();
+        v->update();
     }
 }

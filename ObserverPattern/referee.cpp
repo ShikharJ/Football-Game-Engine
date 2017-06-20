@@ -13,3 +13,8 @@ void Referee::update()
     std::cout << "Player " << name << " says that the ball is at " << ball_position.get_x() << ", "
               << ball_position.get_y() << ", " << ball_position.get_z() << std::endl;
 }
+
+bool Referee::is_player()
+{
+    return false;
+}

@@ -4,12 +4,25 @@
 Player::Player(Football &b, std::string n)
 {
     ball = &b;
-    name = n;
+    name_ = n;
 }
 
 void Player::update()
 {
     ball_position = ball->get_ball_position();
-    std::cout << "Player " << name << " says that the ball is at " << ball_position.get_x() << ", "
+    std::cout << "Player " << name_ << " says that the ball is at " << ball_position.get_x() << ", "
               << ball_position.get_y() << ", " << ball_position.get_z() << std::endl;
+}
+
+bool Player::is_player()
+{
+    return true;
+}
+
+bool Player::__eq__(IObserver *x)
+{
+    if (Player *r = dynamic_cast<Player *>(x)){
+        return (r->name_ == name_);
+    }
+    return false;
 }

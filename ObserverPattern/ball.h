@@ -18,11 +18,11 @@ class Ball
 {
 private:
     //TODO: Add support for RCP
-    std::vector<IObserver> i_;
+    std::vector<IObserver *> i_;
 
 public:
-    void attach_observer();
-    void detach_observer();
+    void attach_observer(IObserver *x);
+    void detach_observer(IObserver *x);
     void notify_observers();
 };
 
