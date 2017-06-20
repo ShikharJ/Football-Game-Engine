@@ -9,13 +9,13 @@ class Referee : public IObserver
 {
 private:
     Position ball_position;
-    std::string name;
+    std::string name_;
     Football *ball;
 
 public:
     Referee(Football &b, std::string n);
     void update();
-    bool is_player();
+    bool __eq__(IObserver *x);
 };
 
 #endif

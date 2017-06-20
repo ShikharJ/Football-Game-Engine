@@ -12,8 +12,7 @@ class IObserver
 {
 public:
     virtual void update() = 0;
-    virtual bool is_player() = 0;
-    virtual bool __eq__(const IObserver *x) = 0;
+    virtual bool __eq__(IObserver *x) = 0;
 };
 
 #endif

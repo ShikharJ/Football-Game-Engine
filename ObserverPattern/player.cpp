@@ -14,11 +14,6 @@ void Player::update()
               << ball_position.get_y() << ", " << ball_position.get_z() << std::endl;
 }
 
-bool Player::is_player()
-{
-    return true;
-}
-
 bool Player::__eq__(IObserver *x)
 {
     if (Player *r = dynamic_cast<Player *>(x)){

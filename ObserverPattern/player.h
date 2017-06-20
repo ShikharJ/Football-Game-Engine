@@ -16,7 +16,6 @@ private:
 public:
     Player(Football &b, std::string n);
     void update();
-    bool is_player();
     bool __eq__(IObserver *x);
 };
 
