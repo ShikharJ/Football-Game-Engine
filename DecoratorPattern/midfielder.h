@@ -3,9 +3,16 @@
 
 #include "playerrole.h"
 
+/*
+ * Concrete Decorator: MidFielder Class
+ * This is a concrete implementation of the
+ * `PlayerRole` class.
+*/
+
 class MidFielder : public PlayerRole
 {
 public:
+    // This is a responsibility purely for the `MidFielder`.
     void dribble();
 };
 

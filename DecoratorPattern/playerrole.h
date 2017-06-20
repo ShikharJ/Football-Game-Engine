@@ -3,13 +3,21 @@
 
 #include "player.h"
 
+/*
+ * Decorator: PlayerRole Class
+ * This encapsulates the entire decorator pattern.
+*/
+
 class PlayerRole : public DPlayer
 {
 protected:
+    // Pointer to the player.
     DPlayer *player;
 
 public:
+    // Overrides `pass_ball()` method in `DPlayer` class.
     void pass_ball();
+    // Assigns a player to this role.
     void assign_player(DPlayer *p);
 };
 

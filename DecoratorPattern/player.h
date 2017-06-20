@@ -4,15 +4,24 @@
 #include <string>
 #include <iostream>
 
-//TODO: Find a workaround for the naming issue regarding observer/player
+/*
+ * Component: Player Class
+ * This is an abstract class representing the component of the
+ * decorator pattern, i.e., the player.
+*/
+
 class DPlayer
 {
 private:
+    // Variable to store the name of the player.
     std::string name;
 
 public:
+    // Returns the name of the player.
     std::string get_name() const;
+    // Sets the name of the player.
     void set_name(std::string s);
+    // Must override function for concrete components
     virtual void pass_ball() = 0;
 };
 
