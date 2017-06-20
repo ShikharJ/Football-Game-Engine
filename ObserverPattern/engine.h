@@ -4,7 +4,7 @@
 /*
  * ObserverEngine Class
  * This is required for running the entire observer pattern simulation.
- */
+*/
 
 class ObserverEngine
 {

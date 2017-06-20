@@ -4,15 +4,25 @@
 #include <string>
 #include "teamstrategy.h"
 
+/*
+ * Context: Team Class
+ * This class encapsulates the entire strategy pattern.
+*/
+
 class Team
 {
 private:
+    // Variable to store the name of the team.
     std::string team_name;
+    // Pointer to the strategy algorithm to use.
     TeamStrategy *strategy;
 
 public:
+    // Constructor
     Team(std::string team);
+    // Context interface to set the strategy.
     void set_strategy(TeamStrategy *s);
+    // Method to commence playing.
     void play_game();
 };
 

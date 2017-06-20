@@ -3,9 +3,16 @@
 
 #include "teamstrategy.h"
 
+/*
+ * Concrete Strategy: AttackStrategy Class
+ * This class is a concrete implementation of the
+ * strategy class.
+*/
+
 class AttackStrategy : public TeamStrategy
 {
 public:
+    // Overrides the `play()` function in `TeamStrategy`.
     void play();
 };
 
