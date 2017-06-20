@@ -29,4 +29,4 @@ StrategyEngine::StrategyEngine()
     Italy->play_game();
 }
 
-StrategyEngine a;
+StrategyEngine b;

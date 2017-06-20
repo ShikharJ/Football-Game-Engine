@@ -35,4 +35,4 @@ ObserverEngine::ObserverEngine()
     ball->set_ball_position(new Position(3, 5, 6));
 }
 
-ObserverEngine e;
+ObserverEngine a;

@@ -40,5 +40,7 @@ set(SOURCE_FILES
         DecoratorPattern/midfielder.cpp
         DecoratorPattern/midfielder.h
         DecoratorPattern/defender.cpp
-        DecoratorPattern/defender.h)
+        DecoratorPattern/defender.h
+        DecoratorPattern/engine.cpp
+        DecoratorPattern/engine.h)
 add_executable(Football-Game-Engine ${SOURCE_FILES})
