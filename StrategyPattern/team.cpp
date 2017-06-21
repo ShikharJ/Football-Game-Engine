@@ -6,7 +6,7 @@ Team::Team(std::string team)
     team_name = team;
 }
 
-void Team::set_strategy(TeamStrategy *s)
+void Team::set_strategy(std::shared_ptr<TeamStrategy> s)
 {
     strategy = s;
 }

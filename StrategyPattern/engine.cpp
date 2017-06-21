@@ -7,12 +7,12 @@
 StrategyEngine::StrategyEngine()
 {
     // Creating strategies.
-    AttackStrategy *attack = new AttackStrategy;
-    DefendStrategy *defend = new DefendStrategy;
+    std::shared_ptr<AttackStrategy> attack = std::make_shared<AttackStrategy>();
+    std::shared_ptr<DefendStrategy> defend = std::make_shared<DefendStrategy>();
 
     // Creating teams.
-    Team *France = new Team("France");
-    Team *Italy = new Team("Italy");
+    std::shared_ptr<Team> France = std::make_shared<Team>("France");
+    std::shared_ptr<Team> Italy = std::make_shared<Team>("Italy");
 
     std::cout << "Setting the strategies..." << std::endl;
 

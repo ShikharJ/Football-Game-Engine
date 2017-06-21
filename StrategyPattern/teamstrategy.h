@@ -8,6 +8,8 @@
  * strategy, irrespective of the client players.
 */
 
+#include <memory>
+
 class TeamStrategy
 {
 public:
