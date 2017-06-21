@@ -7,11 +7,11 @@
 DecoratorEngine::DecoratorEngine()
 {
     // Creating field-players.
-    FieldPlayer *Owen = new FieldPlayer("Owen");
-    FieldPlayer *Beckham = new FieldPlayer("Beckham");
+    std::shared_ptr<FieldPlayer> Owen = std::make_shared<FieldPlayer>("Owen");
+    std::shared_ptr<FieldPlayer> Beckham = std::make_shared<FieldPlayer>("Beckham");
 
     // Creating a goalkeeper.
-    GoalKeeper *Khan = new GoalKeeper("Khan");
+    std::shared_ptr<GoalKeeper> Khan = std::make_shared<GoalKeeper>("Khan");
 
     std::cout << "Warm-up session..." << std::endl;
 
@@ -23,11 +23,11 @@ DecoratorEngine::DecoratorEngine()
     std::cout << std::endl << "Match is starting..." << std::endl;
 
     // Setting `Owen` as the first `Forward`.
-    Forward *forward1 = new Forward;
+    std::shared_ptr<Forward> forward1 = std::make_shared<Forward>();
     forward1->assign_player(Owen);
 
     // Setting `Beckham` as the first `MidFielder`.
-    MidFielder *midfielder1 = new MidFielder;
+    std::shared_ptr<MidFielder> midfielder1 = std::make_shared<MidFielder>();
     midfielder1->assign_player(Beckham);
 
     // `Owen` can pass as well as shoot.
@@ -42,12 +42,12 @@ DecoratorEngine::DecoratorEngine()
               << std::endl;
 
     // Substituting new player as a `Forward`.
-    FieldPlayer *Jerrard = new FieldPlayer("Jerrard");
+    std::shared_ptr<FieldPlayer> Jerrard = std::make_shared<FieldPlayer>("Jerrard");
     forward1->assign_player(Jerrard);
     forward1->shoot_goal();
 
     // Assigning `Beckham` as an extra `Forward`.
-    Forward *extraforward = new Forward;
+    std::shared_ptr<Forward> extraforward = std::make_shared<Forward>();
     extraforward->assign_player(Beckham);
 
     std::cout << std::endl << "Beckham has multiple responsibilities..." << std::endl;

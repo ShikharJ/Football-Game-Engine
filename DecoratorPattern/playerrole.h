@@ -12,13 +12,13 @@ class PlayerRole : public DPlayer
 {
 protected:
     // Pointer to the player.
-    DPlayer *player;
+    std::shared_ptr<DPlayer> player;
 
 public:
     // Overrides `pass_ball()` method in `DPlayer` class.
     void pass_ball();
     // Assigns a player to this role.
-    void assign_player(DPlayer *p);
+    void assign_player(std::shared_ptr<DPlayer> p);
 };
 
 #endif
