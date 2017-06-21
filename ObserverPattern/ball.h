@@ -18,13 +18,13 @@ class Ball
 {
 private:
     // A private list of observers.
-    std::vector<IObserver *> i_;
+    std::vector<std::shared_ptr<IObserver>> i_;
 
 public:
     // Routine to attach an observer.
-    void attach_observer(IObserver *x);
+    void attach_observer(std::shared_ptr<IObserver>);
     // Routine to remove an observer.
-    void detach_observer(IObserver *x);
+    void detach_observer(std::shared_ptr<IObserver>);
     // Routine to notify the observers.
     void notify_observers();
 };

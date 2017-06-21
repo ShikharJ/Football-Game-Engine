@@ -22,7 +22,7 @@ public:
     // This function will be called by the observers to get the ball position.
     Position get_ball_position() const;
     // Some external client will call this to set the ball position.
-    void set_ball_position(Position *p);
+    void set_ball_position(std::shared_ptr<Position> p);
 };
 
 #endif

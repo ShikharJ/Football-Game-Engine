@@ -2,14 +2,14 @@
 #include "ball.h"
 #include "player.h"
 
-void Ball::attach_observer(IObserver *x)
+void Ball::attach_observer(std::shared_ptr<IObserver> x)
 {
     i_.push_back(x);
 }
 
-void Ball::detach_observer(IObserver *x)
+void Ball::detach_observer(std::shared_ptr<IObserver> x)
 {
-    i_.erase(std::remove_if(i_.begin(), i_.end(), [&](IObserver *e) { return e->__eq__(x); }), i_.end());
+    i_.erase(std::remove_if(i_.begin(), i_.end(), [&](std::shared_ptr<IObserver> e) { return e->__eq__(x); }), i_.end());
 }
 
 void Ball::notify_observers()

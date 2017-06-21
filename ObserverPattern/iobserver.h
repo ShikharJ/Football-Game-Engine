@@ -1,6 +1,8 @@
 #ifndef FOOTBALL_GAME_ENGINE_IOBSERVER_H
 #define FOOTBALL_GAME_ENGINE_IOBSERVER_H
 
+#include <memory>
+
 /*
  * Observer: IObserver Class
  * This is an abstract base class for the entire observer
@@ -14,7 +16,7 @@ public:
     // Must override method for updation.
     virtual void update() = 0;
     // For comparing different objects for equality.
-    virtual bool __eq__(IObserver *x) = 0;
+    virtual bool __eq__(std::shared_ptr<IObserver> x) = 0;
 };
 
 #endif

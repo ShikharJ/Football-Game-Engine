@@ -21,15 +21,15 @@ private:
     // Variable to store the name of the player.
     std::string name_;
     // Pointer to the ball in the system.
-    Football *ball;
+    std::shared_ptr<Football> ball;
 
 public:
     // Constructor
-    Player(Football *b, std::string n);
+    Player(std::shared_ptr<Football> b, std::string n);
     // `update()` will be called from `notify_observers()` function in the `Ball` class.
     void update();
     // Overrides the equality function in `IObserver` class.
-    bool __eq__(IObserver *x);
+    bool __eq__(std::shared_ptr<IObserver> x);
 };
 
 #endif

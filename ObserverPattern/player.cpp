@@ -1,7 +1,7 @@
 #include <iostream>
 #include "player.h"
 
-Player::Player(Football *b, std::string n)
+Player::Player(std::shared_ptr<Football> b, std::string n)
 {
     ball = b;
     name_ = n;
@@ -14,10 +14,8 @@ void Player::update()
               << ball_position.get_y() << ", " << ball_position.get_z() << ">" << std::endl;
 }
 
-bool Player::__eq__(IObserver *x)
+bool Player::__eq__(std::shared_ptr<IObserver> x)
 {
-    if (Player *r = dynamic_cast<Player *>(x)){
-        return (r->name_ == name_);
-    }
-    return false;
+    std::shared_ptr<Player> r = std::static_pointer_cast<Player>(x);
+    return (r->name_ == name_);
 }
