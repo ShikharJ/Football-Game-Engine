@@ -18,8 +18,6 @@ public:
     void clear();
     void show_main_menu();
     void show_about();
-    void encrypt();
-    void decrypt();
     void print_screen(string s);
 };
 

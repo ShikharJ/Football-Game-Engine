@@ -4,7 +4,7 @@ using namespace std;
 
 UserInterface::UserInterface()
 {
-    string s = "files/main_screen.bin";
+    string s = "Files/main_screen.bin";
     print_screen(s);
     char ch;
     ch = getchar();
@@ -19,7 +19,7 @@ void UserInterface::clear()
 
 void UserInterface::show_main_menu()
 {
-    string s = "files/main_menu.bin";
+    string s = "Files/main_menu.bin";
     print_screen(s);
 
     do
@@ -29,7 +29,7 @@ void UserInterface::show_main_menu()
 
     switch (option_)
     {
-        case '1' : start_game();
+        case '1' : exit(0);
             break;
         case '2' : show_about();
             break;
@@ -41,7 +41,7 @@ void UserInterface::show_main_menu()
 
 void UserInterface::show_about()
 {
-    string s = "files/about.bin";
+    string s = "Files/about.bin";
     print_screen(s);
 
     do
@@ -52,19 +52,8 @@ void UserInterface::show_about()
     show_main_menu();
 }
 
-void UserInterface::encrypt()
-{
-
-}
-
-void UserInterface::decrypt()
-{
-
-}
-
 void UserInterface::print_screen(string s)
 {
-    clear();
     ifstream fin;
     fin.open(s, ios_base::in);
     char ch;
