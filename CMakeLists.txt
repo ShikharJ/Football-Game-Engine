@@ -5,8 +5,8 @@ set(CMAKE_CXX_STANDARD 14)
 
 set(SOURCE_FILES
         main.cpp
-        user_interface.cpp
-        user_interface.h
+        manager.cpp
+        manager.h
         ObserverPattern/ball.cpp
         ObserverPattern/ball.h
         ObserverPattern/iobserver.h

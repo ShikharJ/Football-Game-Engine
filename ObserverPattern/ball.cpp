@@ -1,6 +1,5 @@
 #include <algorithm>
 #include "ball.h"
-#include "player.h"
 
 void Ball::attach_observer(std::shared_ptr<IObserver> x)
 {
