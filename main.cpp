@@ -1,10 +1,8 @@
-#include "user_interface.h"
+#include <iostream>
 
 using namespace std;
 
 int main()
 {
-    UserInterface U;
-    U.show_main_menu();
     return 0;
 }
