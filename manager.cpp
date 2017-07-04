@@ -2,11 +2,12 @@
 #include <iostream>
 #include <algorithm>
 #include <cmath>
-#include <random>
+#include <ctime>
+
 
 Manager::Manager()
 {
-    match_report = "The Match Has Begun!\n";
+    match_report = "\nThe Match Has Begun!\n";
     home_team = "Barcelona";
     away_team = "Manchester United";
 
@@ -18,8 +19,8 @@ Manager::Manager()
     away_strength.insert(std::make_pair<std::string, double>("Defenders", 2));
     away_strength.insert(std::make_pair<std::string, double>("GoalKeepers", 3));
 
-    tactics.insert(std::make_pair<std::string, std::vector<unsigned>>(std::move(home_team), {2, 2, 2, 2 ,2, 2}));
-    tactics.insert(std::make_pair<std::string, std::vector<unsigned>>(std::move(away_team), {2, 2, 2, 2 ,2, 2}));
+    tactics.insert(std::make_pair<std::string, double>(std::move(home_team), 2));
+    tactics.insert(std::make_pair<std::string, double>(std::move(away_team), 2));
 
     goals.insert(std::make_pair<std::string, int>(std::move(home_team), 0));
     goals.insert(std::make_pair<std::string, int>(std::move(away_team), 0));
@@ -40,23 +41,22 @@ Manager::Manager()
     shots.insert(std::make_pair<std::string, int>(std::move(away_team), 0));
 }
 
-double Manager::tactics_weight(unsigned val)
+double Manager::tactics_weight(double val)
 {
     double new_val = ((val * 0.1) + 0.8);
     return new_val;
 }
 
-double Manager::strength_weight(unsigned val)
+double Manager::strength_weight(double val)
 {
     double new_val = (log10(val + 1) + 0.35);
     return new_val;
 }
 
-bool Manager::percentage_chance(unsigned chance, unsigned universe)
+bool Manager::percentage_chance(unsigned chance)
 {
-    std::default_random_engine generator;
-    std::uniform_int_distribution<int> distribution(1, universe);
-    if (distribution(generator) <= chance){
+    int num = rand() % 38;
+    if (num <= chance){
         return true;
     }
     return false;
@@ -66,13 +66,13 @@ bool Manager::simulate_attack(std::string &attack_team, std::string &defense_tea
                               std::map<std::string, double> &attack_strength,
                               std::map<std::string, double> &defense_strength, int minute)
 {
-    match_report = match_report + " " + std::to_string(minute) + ": " + attack_team + " attacks!\n";
+    match_report = match_report + " Minute " + std::to_string(minute) + ": " + attack_team + " attacks!\n";
     double offense_strength = static_cast<double>(attack_strength["Forwards"]) / defense_strength["Defenders"];
     double defending_strength = static_cast<double>(defense_strength["Defenders"]) / attack_strength["Forwards"];
-    if (percentage_chance(50 * offense_strength * tactics_weight(tactics[attack_team][1])
-                          / tactics_weight(tactics[attack_team][2]))) {
+    if (percentage_chance(50 * offense_strength * tactics_weight(tactics[attack_team])
+                          / tactics_weight(tactics[attack_team]))) {
         match_report = match_report + " " + defense_team + " advances!\n";
-        if (percentage_chance(25 * tactics_weight(tactics[defense_team][5]))) {
+        if (percentage_chance(25 * tactics_weight(tactics[defense_team]))) {
             fouls[defense_team] += 1;
             match_report = match_report + " " + defense_team + " fouls!\n";
             if (percentage_chance(43)) {
@@ -93,14 +93,14 @@ bool Manager::simulate_attack(std::string &attack_team, std::string &defense_tea
                     match_report = match_report + " " + defense_team + "save the shot!\n";
                 }
             } else {
-                match_report = match_report + " " + defense_team + "clear the free kick!\n";
+                match_report = match_report + " " + defense_team + " clear the free kick!\n";
             }
-        } else if (percentage_chance(17 * tactics_weight(tactics[attack_team][2]))) {
+        } else if (percentage_chance(17 * tactics_weight(tactics[attack_team]))) {
             offsides[attack_team] += 1;
             match_report = match_report + " " + defense_team + " commits an offside!\n";
         } else {
             match_report = match_report + " " + defense_team + " advance further!\n";
-            if (percentage_chance(25 * tactics_weight(tactics[defense_team][5]))) {
+            if (percentage_chance(25 * tactics_weight(tactics[defense_team]))) {
                 fouls[defense_team] += 1;
                 match_report = match_report + " " + defense_team + " fouls!\n";
                 if (percentage_chance(43)) {
@@ -137,8 +137,8 @@ bool Manager::simulate_attack(std::string &attack_team, std::string &defense_tea
                     }
                 }
             } else if (percentage_chance(62 * strength_weight(attack_strength["Forwards"]) *
-                                         tactics_weight(tactics[attack_team][2]) *
-                                         tactics_weight(tactics[attack_team][3]))) {
+                                         tactics_weight(tactics[attack_team]) *
+                                         tactics_weight(tactics[attack_team]))) {
                 shots[attack_team] += 1;
                 match_report = match_report + " " + attack_team + "shoots!\n";
                 if (percentage_chance(30 / strength_weight(defense_strength["GoalKeepers"]))) {
@@ -153,9 +153,9 @@ bool Manager::simulate_attack(std::string &attack_team, std::string &defense_tea
                 }
             } else {
                 match_report = match_report + " " + defense_team + " stopped the attack!\n";
-                if (percentage_chance(15 * defending_strength * tactics_weight(tactics[attack_team][1]) *
-                                      tactics_weight(tactics[attack_team][3]) *
-                                      tactics_weight(tactics[defense_team][4]))) {
+                if (percentage_chance(15 * defending_strength * tactics_weight(tactics[attack_team]) *
+                                      tactics_weight(tactics[attack_team]) *
+                                      tactics_weight(tactics[defense_team]))) {
                     attack_strength["Defenders"] = attack_strength["Defenders"] * 0.8;
                     match_report = match_report + " " + defense_team + " launches a quick counter attack!\n";
                     match_report = match_report + " " + "Goals- " + attack_team + " - " +
@@ -165,8 +165,8 @@ bool Manager::simulate_attack(std::string &attack_team, std::string &defense_tea
                 }
             }
         }
-    } else if (percentage_chance(15 * defending_strength * tactics_weight(tactics[attack_team][1]) *
-                                 tactics_weight(tactics[attack_team][3]) * tactics_weight(tactics[defense_team][4]))) {
+    } else if (percentage_chance(15 * defending_strength * tactics_weight(tactics[attack_team]) *
+                                 tactics_weight(tactics[attack_team]) * tactics_weight(tactics[defense_team]))) {
         match_report = match_report + " " + defense_team + " stopped the attack!\n";
         attack_strength["Defenders"] = attack_strength["Defenders"] * 0.8;
         match_report = match_report + " " + defense_team + " launches a quick counter attack!\n";
@@ -194,10 +194,12 @@ bool Manager::simulate_attack(std::string &attack_team, std::string &defense_tea
     return true;
 }
 
-void Manager::run_simulation(int minute)
+void Manager::run_simulation(std::string home, std::string away, int minute)
 {
     for (int i = minute; i < 92; i++){
-        simulate_attack(home_team, away_team, home_strength, away_strength, minute);
+        home_team = home;
+        away_team = away;
+        simulate_attack(home_team, away_team, home_strength, away_strength, i);
     }
     std::cout << match_report << std::endl;
 }

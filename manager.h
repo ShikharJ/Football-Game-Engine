@@ -18,7 +18,7 @@ private:
     std::string away_team;
     std::map<std::string, double> home_strength;
     std::map<std::string, double> away_strength;
-    std::map<std::string, std::vector<unsigned>> tactics;
+    std::map<std::string, double> tactics;
     std::map<std::string, int> goals;
     std::map<std::string, int> fouls;
     std::map<std::string, int> yellow_cards;
@@ -29,13 +29,13 @@ private:
 public:
     // Constructor
     Manager();
-    double tactics_weight(unsigned val);
-    double strength_weight(unsigned val);
-    bool percentage_chance(unsigned chance, unsigned universe = 100);
+    double tactics_weight(double val);
+    double strength_weight(double val);
+    bool percentage_chance(unsigned chance);
     bool simulate_attack(std::string &attack_team, std::string &defense_team,
                          std::map<std::string, double> &attack_strength, std::map<std::string, double> &defense_strength,
                          int minute);
-    void run_simulation(int minute);
+    void run_simulation(std::string home, std::string away, int minute);
 };
 
 #endif
